@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="newsviewmodel"
+            type="com.example.padasoft_test.viewmodels.NewsViewModel" />
+
+        <variable
+            name="news"
+            type="com.example.padasoft_test.data.news.GetNewsHttp.NewsHttp" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/rectangle"
+        android:orientation="horizontal"
+        android:onClick="@{() -> newsviewmodel.chooseNews(news)}"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/btn_img"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:src="@{news.image}" />
+        <!--        app:imageResource="@{news.image}"-->
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="@{ news.title }"
+            android:textAlignment="center"
+            android:textColor="@android:color/black" />
+
+    </LinearLayout>
+
+</layout>
