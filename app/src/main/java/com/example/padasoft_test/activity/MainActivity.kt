@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        NetworkManager.context = this
 //        newsViewModel = ViewModelProviders.of(this).get(NewsViewModel::class.java)
 
     }

@@ -9,6 +9,7 @@ import com.example.padasoft_test.Result
 import com.example.padasoft_test.Result.Success
 import com.example.padasoft_test.data.news.GetNewsHttp
 import com.example.padasoft_test.data.user.LoginHttp
+import com.example.padasoft_test.util.Contextor
 import com.readystatesoftware.chuck.ChuckInterceptor
 
 import okhttp3.OkHttpClient
@@ -21,15 +22,11 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class NetworkManager() {
 
-    companion object {
-        lateinit var context: Context
-    }
-
     var logging = HttpLoggingInterceptor()
         .setLevel(HttpLoggingInterceptor.Level.BASIC)
 
     var client = OkHttpClient.Builder()
-        .addInterceptor(ChuckInterceptor(context))
+        .addInterceptor(ChuckInterceptor(Contextor.getInstance()?.getContext()))
         .addInterceptor(logging)
         .build()
 
